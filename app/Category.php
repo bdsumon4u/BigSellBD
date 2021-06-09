@@ -12,14 +12,17 @@ class Category extends Model
 
     public static function booted()
     {
-        static::saved(function ($menu) {
+        static::saved(function ($category) {
             cache()->forget('categories:nested');
             cache()->forget('homesections');
             cache()->forget('catmenu:nested');
             cache()->forget('catmenu:nestedwithparent');
         });
 
-        static::deleting(function ($menu) {
+        static::deleting(function ($category) {
+            if ($menu = CategoryMenu::find($category->id)) {
+                $menu->delete();
+            }
             cache()->forget('categories:nested');
             cache()->forget('homesections');
             cache()->forget('catmenu:nested');
