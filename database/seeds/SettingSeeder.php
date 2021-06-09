@@ -23,7 +23,7 @@ class SettingSeeder extends Seeder
         \App\Setting::create([
             'name' => 'company',
             'value' => [
-                'name' => 'BikroyJogot',
+                'name' => 'SHOP 32',
                 'phone' => '',
                 'email' => '',
             ],
