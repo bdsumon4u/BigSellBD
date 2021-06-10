@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="media-body m-l-20">
                                             <h4 class="media-heading">{{ $company->name }}</h4>
-                                            <p>{{ $company->email }}<br><span class="digits">{{ $company->phone }}</span></p>
+                                            <p class="m-0">{{ $company->email }}<br><span class="digits">{{ $company->phone }}</span></p>
                                             <div>{{ $order->address }}</div>
                                         </div>
                                     </div>
@@ -99,10 +99,9 @@
                         <!-- End Invoice Mid-->
                         <div>
                             <div class="table-responsive invoice-table" id="table">
-                                <table class="table table-bordered table-striped">
+                                <table class="table table-sm table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th width="100">Image</th>
                                             <th>Name</th>
                                             <th width="95">Price</th>
                                             <th width="10">Quantity</th>
@@ -112,9 +111,6 @@
                                     <tbody>
                                         @foreach($order->products as $product)
                                         <tr>
-                                            <td>
-                                                <img src="{{ $product->image }}" width="100" height="100" alt="">
-                                            </td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->quantity }}</td>
@@ -122,23 +118,26 @@
                                         </tr>
                                         @endforeach
                                         <tr>
-                                            <th colspan="4">Subtotal</th>
+                                            <th rowspan="6" colspan="2"></th>
+                                        </tr>
+                                        <tr>
+                                            <th>Subtotal</th>
                                             <th>{{ $order->data->subtotal }}</th>
                                         </tr>
                                         <tr>
-                                            <th colspan="4">Advanced</th>
+                                            <th>Advanced</th>
                                             <th>{{ $order->data->advanced ?? 0 }}</th>
                                         </tr>
                                         <tr>
-                                            <th colspan="4">Shipping</th>
+                                            <th>Shipping</th>
                                             <th>{{ $order->data->shipping_cost }}</th>
                                         </tr>
                                         <tr>
-                                            <th colspan="4">Discount</th>
+                                            <th>Discount</th>
                                             <th>{{ $order->data->discount ?? 0 }}</th>
                                         </tr>
                                         <tr>
-                                            <th colspan="4">Total</th>
+                                            <th>Total</th>
                                             <th>{{ $order->data->shipping_cost + $order->data->subtotal - ($order->data->advanced ?? 0) - ($order->data->discount ?? 0) }}</th>
                                         </tr>
                                     </tbody>
