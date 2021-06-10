@@ -68,7 +68,9 @@ class OrderController extends Controller
         ]);
 
         $order->update($data);
-        return redirect(route('admin.orders.show', $order))->withSuccess('Order Has Been Updated.');
+        return redirect(route('admin.orders.show', $order))
+//            ->withSuccess('Order Has Been Updated.')
+            ;
     }
 
     /**
