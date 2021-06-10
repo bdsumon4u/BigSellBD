@@ -19,6 +19,11 @@
             <div class="card rounded-0 shadow-sm">
                 <div class="card-header p-3"><strong>Edit Order</strong></div>
                 <div class="card-body p-3">
+                    <ul>
+                        @foreach($errors as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                     <x-form :action="route('admin.orders.update', $order)" method="PATCH">
                         @php $data = $order->data @endphp
                         <div class="row">
@@ -107,32 +112,39 @@
                             <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
                                 <div class="card mb-0">
                                     <div class="card-body">
-                                        <h3 class="card-title">Your Order</h3>
-                                        
-                                        <label for="status">Order Status</label>
-                                        <select name="status" id="status" class="form-control">
-                                            @foreach($statuses as $status)
-                                            <option value="{{ $status }}" {{ $status == $order->status ? 'selected' : '' }}>{{ $status }}</option>
-                                            @endforeach
-                                        </select>
-
                                         <table class="checkout__totals table table-borderless">
                                             <tbody class="checkout__totals-subtotals">
                                                 <tr>
+                                                    <th>Order Status</th>
+                                                    <td>
+                                                        <select style="height: auto; padding: 2px 8px;" name="status" id="status" class="form-control">
+                                                            @foreach($statuses as $status)
+                                                                <option value="{{ $status }}" {{ $status == $order->status ? 'selected' : '' }}>{{ $status }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <th>Subtotal</th>
-                                                    <td class="checkout-subtotal">{!!  theMoney($data->subtotal)  !!}</td>
+                                                    <td class="checkout-subtotal">{!! theMoney($data->subtotal) !!}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Shipping</th>
-                                                    <td class="shipping">{!!  theMoney($data->shipping_cost)  !!}</td>
+                                                    <td class="shipping">{!! theMoney($data->shipping_cost) !!}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Advanced</th>
+                                                    <td>
+                                                        <input style="height: auto; padding: 2px 8px;" type="text" name="data[advanced]" value="{!!  $data->advanced ?? 0  !!}" class="form-control">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Discount</th>
+                                                    <td>
+                                                        <input style="height: auto; padding: 2px 8px;" type="text" name="data[discount]" value="{!!  $data->discount ?? 0  !!}" class="form-control">
+                                                    </td>
                                                 </tr>
                                             </tbody>
-                                            <tfoot class="checkout__totals-footer">
-                                                <tr>
-                                                    <th>Total</th>
-                                                    <td>{!!  theMoney($data->shipping_cost + $data->subtotal)  !!}</td>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                         <button type="submit" class="btn btn-primary btn-xl btn-block">Update</button>
                                     </div>

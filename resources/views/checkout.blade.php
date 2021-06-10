@@ -15,6 +15,11 @@
 
     <div class="checkout block">
         <div class="container">
+            <ul class="text-danger">
+                @foreach($errors as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
             <x-form :action="route('checkout')" method="POST">
                 @php $user = optional(auth('user')->user()) @endphp
                 <div class="row">
@@ -56,6 +61,7 @@
                                     <x-textarea name="address" placeholder="Address *">{{ $user->address }}</x-textarea>
                                     <x-error field="address" />
                                 </div>
+                                <div class="ordered-products"></div>
                             </div>
                             <div class="card-footer p-3">
                                 <button type="submit" class="btn btn-primary btn-xl btn-block">@lang('Place Order')</button>

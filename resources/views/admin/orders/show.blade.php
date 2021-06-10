@@ -126,12 +126,20 @@
                                             <th>{{ $order->data->subtotal }}</th>
                                         </tr>
                                         <tr>
+                                            <th colspan="4">Advanced</th>
+                                            <th>{{ $order->data->advanced ?? 0 }}</th>
+                                        </tr>
+                                        <tr>
                                             <th colspan="4">Shipping</th>
                                             <th>{{ $order->data->shipping_cost }}</th>
                                         </tr>
                                         <tr>
+                                            <th colspan="4">Discount</th>
+                                            <th>{{ $order->data->discount ?? 0 }}</th>
+                                        </tr>
+                                        <tr>
                                             <th colspan="4">Total</th>
-                                            <th>{{ $order->data->shipping_cost + $order->data->subtotal }}</th>
+                                            <th>{{ $order->data->shipping_cost + $order->data->subtotal - ($order->data->advanced ?? 0) - ($order->data->discount ?? 0) }}</th>
                                         </tr>
                                     </tbody>
                                 </table>
