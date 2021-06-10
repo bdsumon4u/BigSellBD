@@ -79,7 +79,7 @@
                                     <tbody class="checkout__totals-subtotals">
                                     <tr>
                                         <th>@lang('Subtotal')</th>
-                                        <td class="checkout-subtotal">{!!  theMoney(0)  !!}</td>
+                                        <td class="checkout-subtotal desktop">{!!  theMoney(0)  !!}</td>
                                     </tr>
                                     <tr>
                                         <th>@lang('Shipping')</th>
@@ -89,7 +89,7 @@
                                     <tfoot class="checkout__totals-footer">
                                     <tr>
                                         <th>@lang('Total')</th>
-                                        <td>{!!  theMoney(0)  !!}</td>
+                                        <td><span>{!!  theMoney(0)  !!}</span></td>
                                     </tr>
                                     </tfoot>
                                 </table>
