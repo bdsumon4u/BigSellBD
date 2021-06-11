@@ -28,7 +28,7 @@
     <hr>
     <!-- End InvoiceTop-->
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="media">
                 <div class="media-body m-l-20">
                     <h5>Customer Information:</h5>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="text-md-right" id="project">
                 <h6>Note</h6>
                 <p>{{ $order->note ?? 'N/A' }}</p>
