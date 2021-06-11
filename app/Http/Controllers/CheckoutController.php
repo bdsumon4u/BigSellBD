@@ -79,7 +79,9 @@ class CheckoutController extends Controller
             $order = Order::create($data);
         });
 
-        $data['email'] && Mail::to($data['email'])->queue(new OrderPlaced($order));
+        if (isset($data['email'])) {
+            $data['email'] && Mail::to($data['email'])->queue(new OrderPlaced($order));
+        }
 
         return redirect()->route('track-order', [
             'phone' => $data['phone'],
