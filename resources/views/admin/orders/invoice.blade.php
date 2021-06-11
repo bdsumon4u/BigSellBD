@@ -31,9 +31,10 @@
         <div class="col-md-4">
             <div class="media">
                 <div class="media-body m-l-20">
-                    <h5 class="media-heading">{{ $order->name }}</h5>
-                    <p class="m-0">{{ $order->phone }}</p>
-                    <div>{{ $order->address }}</div>
+                    <h5>Customer Information:</h5>
+                    <h5 style="font-weight: 400;" class="media-heading">Name: {{ $order->name }}</h5>
+                    <p class="m-0">Phone: {{ $order->phone }}</p>
+                    <div>Address: {{ $order->address }}</div>
                 </div>
             </div>
         </div>
