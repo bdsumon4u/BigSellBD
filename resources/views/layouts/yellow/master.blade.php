@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('strokya/fonts/stroyka/stroyka.css') }}">
     <style>
         ::placeholder {
-            color: #ccc !important;
+            color: #c0d0e !important;
         }
         .page-header__container {
             padding-bottom: 12px;

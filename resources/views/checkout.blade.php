@@ -37,12 +37,12 @@
                                         <x-error field="phone" />
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <x-input type="email" name="email" placeholder="Email" :value="$user->email" />
-                                        <x-error field="email" />
-                                    </div>
-                                </div>
+{{--                                <div class="form-row">--}}
+{{--                                    <div class="form-group col-md-12">--}}
+{{--                                        <x-input type="email" name="email" placeholder="Email" :value="$user->email" />--}}
+{{--                                        <x-error field="email" />--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="form-group">
                                     <label class="d-block">@lang('Delivery Area') <span class="text-danger">*</span></label>
                                     <div class="form-control @error('shipping') is-invalid @enderror h-auto">
