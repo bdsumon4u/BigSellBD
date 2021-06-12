@@ -9,6 +9,7 @@
                     <div class="media-body m-l-20">
                         <h4 class="media-heading">{{ $company->name }}</h4>
                         <p class="m-0"><span class="digits">{{ $company->phone }}</span></p>
+                        <p class="m-0">{{ $company->address }}</p>
                     </div>
                 </div>
                 <!-- End Info-->
@@ -31,10 +32,10 @@
         <div class="col-md-6">
             <div class="media">
                 <div class="media-body m-l-20">
-                    <h5>Customer Information:</h5>
-                    <h5 style="font-weight: 400;" class="media-heading">Name: {{ $order->name }}</h5>
-                    <h5 style="font-weight: 400;">Phone: {{ $order->phone }}</h5>
-                    <h5 style="font-weight: 400;">Address: {{ $order->address }}</h5>
+                    <h6 class="mb-0">Customer Information:</h6>
+                    <div class="media-heading">Name: {{ $order->name }}</div>
+                    <div>Phone: {{ $order->phone }}</div>
+                    <div>Address: {{ $order->address }}</div>
                 </div>
             </div>
         </div>
@@ -62,7 +63,7 @@
                 @foreach($order->products as $product)
                     <tr>
                         <td>
-                            <img src="{{ $product->image }}" alt="Image" width="80" height="70">
+                            <img src="{{ $product->image }}" alt="Image" width="70" height="60">
                         </td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
@@ -71,25 +72,25 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <th rowspan="5" colspan="3" style="text-align: center; vertical-align: middle; font-size: 24px;">
+                    <th class="py-1" rowspan="5" colspan="3" style="text-align: center; vertical-align: middle; font-size: 24px;">
                         <span style="font-weight: 400;">Condition</span>: TK. {{ $order->data->shipping_cost + $order->data->subtotal - ($order->data->advanced ?? 0) - ($order->data->discount ?? 0) }}
                     </th>
                 </tr>
                 <tr>
-                    <th>Subtotal</th>
-                    <th>{{ $order->data->subtotal }}</th>
+                    <th class="py-1">Subtotal</th>
+                    <th class="py-1">{{ $order->data->subtotal }}</th>
                 </tr>
                 <tr>
-                    <th>Advanced</th>
-                    <th>{{ $order->data->advanced ?? 0 }}</th>
+                    <th class="py-1">Advanced</th>
+                    <th class="py-1">{{ $order->data->advanced ?? 0 }}</th>
                 </tr>
                 <tr>
-                    <th>Shipping</th>
-                    <th>{{ $order->data->shipping_cost }}</th>
+                    <th class="py-1">Shipping</th>
+                    <th class="py-1">{{ $order->data->shipping_cost }}</th>
                 </tr>
                 <tr>
-                    <th>Discount</th>
-                    <th>{{ $order->data->discount ?? 0 }}</th>
+                    <th class="py-1">Discount</th>
+                    <th class="py-1">{{ $order->data->discount ?? 0 }}</th>
                 </tr>
                 </tbody>
             </table>

@@ -39,7 +39,7 @@
     }
     .only-print {
         display: block;
-        padding-top: 4rem;
+        padding-top: 2rem;
     }
 }
 </style>
@@ -60,7 +60,7 @@
 <div class="row mb-5">
     <div class="col-sm-12">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body p-3">
                 <div class="invoice">
                     <div>
                         @include('admin.orders.invoice')
