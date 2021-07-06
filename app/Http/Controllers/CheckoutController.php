@@ -68,9 +68,7 @@ class CheckoutController extends Controller
                 'data' => [
                     'shipping_area' => $data['shipping'],
                     'shipping_cost' => setting('delivery_charge')->{$data['shipping'] == 'Inside Dhaka' ? 'inside_dhaka' : 'outside_dhaka'} ?? config('services.shipping.'.$data['shipping']),
-                    'subtotal'      => is_array($products) ? array_reduce($products, function ($sum, $product) {
-                        return $sum += $product['total'];
-                    }) : $products->sum('total'),
+                    'subtotal'      => $this->getSubtotal($products),
                 ],
             ];
 
@@ -79,9 +77,7 @@ class CheckoutController extends Controller
             $order = Order::create($data);
         });
 
-        if (isset($data['email'])) {
-            $data['email'] && Mail::to($data['email'])->queue(new OrderPlaced($order));
-        }
+        $data['email'] && Mail::to($data['email'])->queue(new OrderPlaced($order));
 
         return redirect()->route('track-order', [
             'phone' => $data['phone'],
