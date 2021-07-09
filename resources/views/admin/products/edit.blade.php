@@ -165,11 +165,11 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <select class="form-control mr-1" name="discount_type" id="discount-type">
-                                                                    <option value="fixed">Fixed</option>
-                                                                    <option value="percent">Percent</option>
+                                                                    <option value="fixed" @if(old('discount_type', $product->discount_type) === 'fixed') selected @endif>Fixed</option>
+                                                                    <option value="percent" @if(old('discount_type', $product->discount_type) === 'percent') selected @endif>Percent</option>
                                                                 </select>
                                                             </div>
-                                                            <input type="text" class="form-control" value="0" onfocus="this.select()">
+                                                            <input type="text" class="form-control" name="discount" value="{{ old('discount', $product->discount ?? 0) }}" onfocus="this.select()">
                                                         </div>
                                                     </div>
                                                 </div>

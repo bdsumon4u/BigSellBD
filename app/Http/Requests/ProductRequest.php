@@ -36,6 +36,8 @@ class ProductRequest extends FormRequest
             'categories' => 'required|array',
             'brand' => 'nullable|integer',
             'price' => 'required|integer',
+            'discount' => 'required|integer',
+            'discount_type' => 'required',
             'selling_price' => 'required|integer',
             'sku' => 'required|unique:products',
             'should_track' => 'sometimes|integer',
@@ -60,7 +62,11 @@ class ProductRequest extends FormRequest
         ];
 
         $data['brand_id']    = $data['brand'];
-        $data['stock_count'] = intval($data['stock_count']);
+        $data['stock_count'] = (int)$data['stock_count'];
+        $data['selling_price']
+            = $data['discount_type'] === 'fixed'
+            ? $data['price'] - $data['discount']
+            : round($data['price'] * (1 - $data['discount'] / 100));
 
         return $data;
     }
