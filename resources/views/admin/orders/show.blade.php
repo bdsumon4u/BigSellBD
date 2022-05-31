@@ -64,9 +64,9 @@
                     <div class="invoice">
                         <div>
                         @include('admin.orders.invoice')
-                        @include('admin.orders.invoice', [
+                        {{-- @include('admin.orders.invoice', [
                             'class' => 'only-print',
-                        ])
+                        ]) --}}
                         <!-- End InvoiceBot-->
                         </div>
                         <div class="col-sm-12 print-edit-buttons text-center mt-3">

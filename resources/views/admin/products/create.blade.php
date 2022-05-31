@@ -159,11 +159,18 @@
                                                         <x-error field="price" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <x-label for="selling_price" /><span class="text-danger">*</span>
-                                                        <x-input name="selling_price" />
-                                                        <x-error field="selling_price" />
+                                                        <x-label for="discount" /><span class="text-danger">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <select class="form-control mr-1" name="discount_type" id="discount-type">
+                                                                    <option value="fixed" selected>Fixed</option>
+                                                                    <option value="percent">Percent</option>
+                                                                </select>
+                                                            </div>
+                                                            <input type="text" class="form-control" name="discount" value="{{ old('discount', 0) }}" onfocus="this.select()">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

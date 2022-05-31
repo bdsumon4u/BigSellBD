@@ -64,7 +64,7 @@ class ProductRequest extends FormRequest
         $data['brand_id']    = $data['brand'];
         $data['stock_count'] = (int)$data['stock_count'];
         $data['selling_price']
-            = $data['discount_type'] === 'fixed'
+            = $this->get('discount_type') === 'fixed'
             ? $data['price'] - $data['discount']
             : round($data['price'] * (1 - $data['discount'] / 100));
 
