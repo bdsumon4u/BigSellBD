@@ -192,6 +192,7 @@
     </script>
     @stack('styles')
     @routes
+    <script src="//code.tidio.co/rlmurwkkffbeqmlwv11wejlqjgd0irtl.js" async></script>
 </head>
 
 <body class="header-fixed" style="margin: 0; padding: 0;">
