@@ -47,6 +47,7 @@ class HomeSection extends Model
                 $query->whereIn('categories.id', $this->categories->pluck('id')->toArray());
             })
             // ->inRandomOrder()
+            ->latest('id')
             ->when($limited, function ($query) use ($rows, $cols) {
                 $query->take($rows * $cols);
             });
