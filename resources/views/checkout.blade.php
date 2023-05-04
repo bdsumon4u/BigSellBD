@@ -47,11 +47,11 @@
                                     <label class="d-block">@lang('Delivery Area') <span class="text-danger">*</span></label>
                                     <div class="form-control @error('shipping') is-invalid @enderror h-auto">
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" id="inside-dhaka" name="shipping" value="Inside Dhaka" data-val="{{ config('services.shipping.Inside Dhaka') }}">
+                                            <input type="radio" class="custom-control-input" id="inside-dhaka" name="shipping" value="Inside Dhaka" data-val="{{ setting('delivery_charge')->inside_dhaka ?? config('services.shipping.Inside Dhaka') }}">
                                             <label class="custom-control-label" for="inside-dhaka">@lang('Inside Dhaka')</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" id="outside-dhaka" name="shipping" value="Outside Dhaka" data-val="{{ config('services.shipping.Outside Dhaka') }}">
+                                            <input type="radio" class="custom-control-input" id="outside-dhaka" name="shipping" value="Outside Dhaka" data-val="{{ setting('delivery_charge')->outside_dhaka ?? config('services.shipping.Outside Dhaka') }}">
                                             <label class="custom-control-label" for="outside-dhaka">@lang('Outside Dhaka')</label>
                                         </div>
                                     </div>
